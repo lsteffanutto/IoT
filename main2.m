@@ -6,7 +6,7 @@ clc
 %% Parametres d'initialisations
 
 SF = 7;
-SNRdB = -30:1:-10;             
+SNRdB = -20:1:0;             
 BER = zeros(6,length(SNRdB));
 SER = zeros(6,length(SNRdB));
 PER = zeros(6,length(SNRdB));
@@ -78,13 +78,22 @@ for SF = 7%:12 % Spreading Factor = nb de bits/symboles
     PER = PER / NbPaquet;
 
     figure(1)
-    semilogy(Sensitivity,[BER;SER;PER]);
+    semilogy(Sensitivity,BER);
     xlabel('Sensitivity (dBm)');
-    ylabel('BER / SER / PER');
-    legend('BER','SER','PER');
-    title(sprintf('Performane LoRa communication SF = %d',SF))
+    %ylabel('BER reference');
+    %legend('BER');
+    title(sprintf('Performane LoRa communication SF1 = %d',SF))
     grid on;
     hold on;
+    
+%     figure(1)
+%     semilogy(Sensitivity,[BER;SER;PER]);
+%     xlabel('Sensitivity (dBm)');
+%     ylabel('BER / SER / PER');
+%     legend('BER','SER','PER');
+%     title(sprintf('Performane LoRa communication SF = %d',SF))
+%     grid on;
+%     hold on;
 
 
     
